@@ -1,0 +1,18 @@
+#services:
+#    tbl_jukebox.example:
+#        class: Tbl\JukeboxBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+
+services:
+    fabgg_jukebox.manager:
+        class: Fabgg\JukeboxBundle\Lib\JukeboxManager
+        arguments: ['%fabgg_jukebox.system.path%','%fabgg_jukebox.system.separator%']
+    fabgg_jukebox.io:
+        class: Fabgg\JukeboxBundle\Lib\JukeboxIO
+        arguments: ['@doctrine.orm.entity_manager','@session']
+        calls:
+            - [setManager, ['@fabgg_jukebox.manager']]
+
+
+        #arguments: ['@doctrine.orm.entity_manager', '@service_container','@filesystem','@request_stack']
