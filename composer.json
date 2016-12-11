@@ -1,0 +1,31 @@
+{
+  "name": "fabgg/jukebox-bundle",
+  "description": "A document management bundle for Symfony",
+  "homepage": "https://github.com/fabgg/jukeboxBundle",
+  "keywords": ["file", "document"],
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "type": "symfony-bundle",
+  "require": {
+    "php": ">=5.5.9",
+    "cocur/slugify":"^2.3",
+    "symfony/symfony": "3.2.*",
+    "doctrine/orm": "^2.5",
+    "doctrine/doctrine-bundle": "^1.6"
+  },
+  "authors": [
+    {
+      "name": "Fabrice Gares",
+      "email": "hello@timberlee.fr",
+      "homepage": "http://timberlee.fr/"
+    }
+  ],
+  "autoload": {
+    "classmap": ["lib"]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1.x-dev"
+    }
+  }
+}
