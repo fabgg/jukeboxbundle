@@ -21,7 +21,7 @@
     }
   ],
   "autoload": {
-    "psr-4": {"Fabgg\\JukeboxBundle\\": ""}
+    "psr-0": {"Fabgg\\JukeboxBundle\\": ""}
   },
   "extra": {
     "branch-alias": {
