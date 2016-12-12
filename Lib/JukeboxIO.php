@@ -14,8 +14,8 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Tbl\JukeboxBundle\Exception\JKException;
-use Tbl\JukeboxBundle\Model\JKFile;
+use Fabgg\JukeboxBundle\Exception\JKException;
+use Fabgg\JukeboxBundle\Model\JKFile;
 
 
 class JukeboxIO
@@ -31,7 +31,7 @@ class JukeboxIO
         $this->session = $session;
     }
 
-    public function setManager(\Tbl\JukeboxBundle\Lib\JukeboxManager $jukeboxManager){
+    public function setManager(\Fabgg\JukeboxBundle\Lib\JukeboxManager $jukeboxManager){
         $this->JKManager= $jukeboxManager;
     }
 
@@ -94,7 +94,7 @@ class JukeboxIO
      * @param JKFile $JKFile
      * @return BinaryFileResponse
      */
-    public function getSteam(JKFile $JKFile){
+    public function getStream(JKFile $JKFile){
         $fullPath = $this->JKManager->getAbsolutePath($JKFile).$JKFile->getFileName();
         $response = new BinaryFileResponse($fullPath);
         $response->headers->set('Content-Type', $JKFile->getFileMine());
