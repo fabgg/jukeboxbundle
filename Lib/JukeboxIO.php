@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: fabrice
- * Date: 10/12/2016
- * Time: 08:32
- */
-
 namespace Fabgg\JukeboxBundle\Lib;
 
 use Doctrine\ORM\EntityManager;

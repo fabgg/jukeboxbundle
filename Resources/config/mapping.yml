@@ -2,7 +2,7 @@
 # in progress
 Fabgg\JukeboxBundle\Model\JKFile:
     type: mappedSuperclass
-    repositoryClass: Tbl\JukeboxBundle\Model\JKFile
+    repositoryClass: Fabgg\JukeboxBundle\Model\JKFile
     indexes:
         name_index:
             columns: [ id ]

@@ -7,16 +7,17 @@ namespace Fabgg\JukeboxBundle;
 //use Doctrine\Bundle\MongoDBBundle\DependencyInjection\Compiler\DoctrineMongoDBMappingsPass;
 //use Doctrine\Bundle\CouchDBBundle\DependencyInjection\Compiler\DoctrineCouchDBMappingsPass;
 //use Doctrine\Bundle\PHPCRBundle\DependencyInjection\Compiler\DoctrinePhpcrMappingsPass;
-//use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+
 
 class FabggJukeboxBundle extends Bundle
 {
-//    public function build(ContainerBuilder $container){
-//        parent::build($container);
-//       // $this->addRegisterMappingsPass($container);
-//    }
-
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+       // $container->addCompilerPass(new TransformerCompilerPass());
+    }
 //    private function addRegisterMappingsPass(ContainerBuilder $container)
 //    {
 //        $mappings = array(

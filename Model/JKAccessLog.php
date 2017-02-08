@@ -1,6 +1,5 @@
 <?php
-
-namespace Fabgg\JukeboxBundle\Entity;
+namespace Fabgg\JukeboxBundle\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 

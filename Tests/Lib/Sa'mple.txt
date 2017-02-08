@@ -1,0 +1,3 @@
+This is an exemple of a file.
+
+This is a line of sample.txt
