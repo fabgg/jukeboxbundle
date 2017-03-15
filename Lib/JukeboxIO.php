@@ -30,7 +30,7 @@ class JukeboxIO
 
     public function put(File $file, JKFile $JKFile){
         $JKFile->setFilePath($this->JKManager->getNewRandPath());
-        $JKFile->setFileExtension($file->getExtension());
+        $JKFile->setFileExtension($file->guessExtension());
         $JKFile->setFileMine($file->getMimeType());
         $JKFile->setFileName($file->getFilename());
         $JKFile->setFileSize($file->getSize());
