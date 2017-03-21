@@ -28,7 +28,14 @@ class JukeboxIO
         $this->JKManager= $jukeboxManager;
     }
 
-    public function put(File $file, JKFile $JKFile){
+    public function put($file, JKFile $JKFile){
+        if($file instanceof UploadedFile){
+            $originalFileName = $file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
+        } elseif($file instanceof File){
+            $originalFileName = $file->getFilename();
+            $extension = $file->guessExtension();
+        }
         $JKFile->setFilePath($this->JKManager->getNewRandPath());
         $JKFile->setFileExtension($file->guessExtension());
         $JKFile->setFileMine($file->getMimeType());
