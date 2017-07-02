@@ -21,12 +21,18 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('fabgg_jukebox');
         $rootNode
             ->children()
+                ->scalarNode('public_uri_prefix')->end()
                 ->arrayNode('system')
                     ->children()
-                        ->scalarNode('path')->end()
                         ->scalarNode('separator')->end()
+                        ->arrayNode('path')
+                            ->children()
+                                ->scalarNode('private')->end()
+                                ->scalarNode('public')->end()
+                            ->end()
+                        ->end()
                     ->end()
-                ->end() // system
+                ->end()
             ->end()
         ;
 

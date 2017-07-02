@@ -7,12 +7,17 @@
 services:
     fabgg_jukebox.manager:
         class: Fabgg\JukeboxBundle\Lib\JukeboxManager
-        arguments: ['%fabgg_jukebox.system.path%','%fabgg_jukebox.system.separator%']
+        arguments: ['%fabgg_jukebox.system.separator%', '%fabgg_jukebox.system.path.private%','%fabgg_jukebox.system.path.public%','%fabgg_jukebox.public_uri_prefix%',]
     fabgg_jukebox.io:
         class: Fabgg\JukeboxBundle\Lib\JukeboxIO
         arguments: ['@doctrine.orm.entity_manager','@session']
         calls:
             - [setManager, ['@fabgg_jukebox.manager']]
-
+    fabgg_jukebox_twig_extension:
+        class: Fabgg\JukeboxBundle\Twig\Extension\UploaderExtension
+        arguments: ['@fabgg_jukebox_twig_helper']
+    fabgg_jukebox_twig_helper:
+        class:  Fabgg\JukeboxBundle\Twig\Helper\UploaderHelper
+        arguments: ['@fabgg_jukebox.io']
 
         #arguments: ['@doctrine.orm.entity_manager', '@service_container','@filesystem','@request_stack']

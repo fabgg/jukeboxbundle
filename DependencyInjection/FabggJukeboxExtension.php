@@ -27,8 +27,10 @@ class FabggJukeboxExtension extends Extension
 
       //  var_dump($config);die();
 
-        $container->setParameter('fabgg_jukebox.system.path', $config['system']['path']);
+        $container->setParameter('fabgg_jukebox.system.path.public', $config['system']['path']['public']);
+        $container->setParameter('fabgg_jukebox.system.path.private', $config['system']['path']['private']);
         $container->setParameter('fabgg_jukebox.system.separator', $config['system']['separator']);
+        $container->setParameter('fabgg_jukebox.public_uri_prefix', $config['public_uri_prefix']);
 
        // $container->setAlias('tbl_jukebox.system.path', $config['system']['path']);
     }

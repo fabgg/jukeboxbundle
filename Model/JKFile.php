@@ -310,29 +310,6 @@ abstract class JKFile
         return $this->fileSlug;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return JKFile
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * Set public

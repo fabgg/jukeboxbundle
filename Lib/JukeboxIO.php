@@ -38,18 +38,18 @@ class JukeboxIO
             $extension = $file->guessExtension();
         }
         $JKFile->setFilePath($this->JKManager->getNewRandPath());
-        $JKFile->setFileExtension($file->guessExtension());
+        $JKFile->setFileExtension($extension);
         $JKFile->setFileMine($file->getMimeType());
-        $JKFile->setFileName($file->getFilename());
+        $JKFile->setFileName($originalFileName);
         $JKFile->setFileSize($file->getSize());
         $utils = new JukeboxUtils();
-        $JKFile->setFileSlug($utils->slugify($file->getFilename()));
+        $JKFile->setFileSlug($utils->slugify($originalFileName));
         $this->em->persist($JKFile);
         $this->em->flush();
         if($JKFile->getId()){
             $file->move(
                 $this->JKManager->getAbsolutePath($JKFile), //Destination
-                $JKFile->getFileName()
+                $JKFile->getFileSlug()
             );
             unset($file);
         } else {
@@ -63,16 +63,30 @@ class JukeboxIO
      * @param JKFile $JKFile
      * @return $link
      */
-    public function getLink(JKFile $JKFile){
+    public function getLink(JKFile $JKFile, $route = null){
+
         if($JKFile->getPublic()){
-           $link =  'public/'.$JKFile->getId().'/';
+            $link = $this->JKManager->getPublicAssetPath($JKFile);
+            $link .= $JKFile->getFileSlug();
         }
         else {
             $token = 'jk_'.bin2hex(openssl_random_pseudo_bytes(8));
             $this->session->set($token,$JKFile->getId());
-            $link = 'private/'.$token.'/';
+            // $link = 'private/'.$token.'/';
+            $link = $route.'/?t='.$token;
         }
-        return $link.$JKFile->getFileSlug();
+        return $link;
+    }
+
+
+    /**
+     * @param $link
+     * @return $JKFileId
+     */
+    public function getIdByToken($token){
+        $JKFileId = $this->session->get($token);
+        if($JKFileId) return $JKFileId;
+        else throw new JKException('parseLink > the token in the link are not longer set',106);
     }
 
     /**
