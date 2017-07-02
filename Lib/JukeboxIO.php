@@ -73,7 +73,7 @@ class JukeboxIO
             $token = 'jk_'.bin2hex(openssl_random_pseudo_bytes(8));
             $this->session->set($token,$JKFile->getId());
             // $link = 'private/'.$token.'/';
-            $link = $route.'/?t='.$token;
+            $link = $route.'private/'.$token.'/';
         }
         return $link;
     }
