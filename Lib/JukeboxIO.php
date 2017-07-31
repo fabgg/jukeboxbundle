@@ -49,7 +49,7 @@ class JukeboxIO
         if($JKFile->getId()){
             $file->move(
                 $this->JKManager->getAbsolutePath($JKFile), //Destination
-                $originalFileName
+                $JKFile->getFileSlug()
             );
             unset($file);
         } else {
