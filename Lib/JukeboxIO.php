@@ -110,7 +110,7 @@ class JukeboxIO
      * @return BinaryFileResponse
      */
     public function getStream(JKFile $JKFile){
-        $fullPath = $this->JKManager->getAbsolutePath($JKFile).$JKFile->getFileName();
+        $fullPath = $this->JKManager->getAbsolutePath($JKFile).$JKFile->getFileSlug();
         $response = new BinaryFileResponse($fullPath);
         $response->headers->set('Content-Type', $JKFile->getFileMine());
         $response->setContentDisposition(
