@@ -64,7 +64,7 @@ class JukeboxManager
         $path = ($JKFile->getPublic()) ? $this->jukeboxPublicPath : $this->jukeboxPrivatePath;
         $absolutePath = (substr($path, -1) != $this->separator) ? $path . $this->separator : $path;
         $absolutePath .= $this->getSuffixPath($JKFile);
-        if($withFileName) $absolutePath .= $JKFile->getFileName();
+        if($withFileName) $absolutePath .= $JKFile->getFileSlug();
         return $absolutePath;
     }
 
