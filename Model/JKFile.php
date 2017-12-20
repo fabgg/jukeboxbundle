@@ -271,7 +271,7 @@ abstract class JKFile
      */
     public function setFileExtension($fileExtension)
     {
-        $this->fileExtension = $fileExtension;
+        $this->fileExtension = strtolower($fileExtension);
 
         return $this;
     }
