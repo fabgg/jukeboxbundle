@@ -1,7 +1,7 @@
 {
   "name": "fabgg/Jukeboxbundle",
   "description": "A document management bundle for Symfony",
-  "homepage": "https://github.com/fabgg/jukeboxBundle",
+  "homepage": "https://github.com/fabgg/jukeboxbundle",
   "keywords": ["file", "document"],
   "minimum-stability": "dev",
   "license": "MIT",
